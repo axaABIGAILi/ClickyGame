@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Header = props => {
-    <div className="navbar">
+const Header = (props) => {
+    return <div className="navbar">
         <ul>
           <li>Clicky Game</li>
           <li>{this.props.phrase}</li>

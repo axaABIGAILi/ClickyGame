@@ -8,16 +8,19 @@ import Images from './components/imageCard';
 import './App.css';
 
 // create App as a class to make it more updateable
-class App extends Component {
-  // moved variables into a state object for updating
-  state ={
+class App extends React.Component {
+  // setting state
+  constructor(props) {
+    super(props)
+    // moved variables into a state object for updating
+    state = {
     score: 0,
     topscore: 0,
-    clickedCards = [],
+    clickedCards: [],
     cardsTotal: 12,
     headerPhrases: ['Click to start the game!', 'Good guess, keep going!', 'Wrong guess. Start over!'],
-    truePhrase=''
-  }
+    truePhrase:''
+    }
 
   // if a card is in the clickedCards array, clicking it will trigger the headerPhrases[2] to display etc.
 
@@ -25,20 +28,20 @@ class App extends Component {
   imageClick = event => {
     event.preventDefault();
     // check if the image is clicked
-    if (isClicked) {
+    if (this.state.isClicked) {
       // display the loss header phrase
       this.state.truePhrase = this.state.headerPhrases[2];
       // if they got a new high score, swap out old top for new score
-      if (score > topscore) {
+      if (this.state.score > this.state.topscore) {
         this.state.topscore = this.state.score;
       }
     } else {
       // switch isClicked to true
-      this.isClicked = true;
+      this.state.isClicked = true;
       // call function to shuffle cards
       // SHUFFLE FUNCTION HERE
       // increase score by 1
-      this.score += 1;
+      this.state.score += 1;
       // display the good guess phrase
       this.state.truePhrase = this.state.headerPhrases[1];
     }
