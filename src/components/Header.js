@@ -1,6 +1,6 @@
 import React from 'react';
 
-var Header = props => {
+const Header = props => {
     <div className="navbar">
         <ul>
           <li>Clicky Game</li>

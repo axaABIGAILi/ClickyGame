@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Footer() {
+const Footer = props => {
     return (
       <footer className="page-footer">
-        <h4>Smash Clicker!</h4>
+        <img src={props.logo}></img><h4>Smash Clicker!</h4>
       </footer>
     );
   }
