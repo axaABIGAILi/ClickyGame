@@ -7,57 +7,58 @@ import Images from './components/imageCard';
 //import characters from './cardlist.json';
 import './App.css';
 
-function App() {
-  // declare our variables needed for game logic
-  // current score starts at 0
-  var score = 0;
-  // top score starts at 0
-  var topscore = 0;
-  // empty array to store the clicked cards
-  var clickedCards = [];
-  // total cards # that users strive for
-  const cardsTotal = 12;
-  // array of quotes depending on the latest click
-  const headerPhrases = ['Click to start the game!', 'Good guess, keep going!', 'Wrong guess. Start over!']
-  var truePhrase='';
+// create App as a class to make it more updateable
+class App extends Component {
+  // moved variables into a state object for updating
+  state ={
+    score: 0,
+    topscore: 0,
+    clickedCards = [],
+    cardsTotal: 12,
+    headerPhrases: ['Click to start the game!', 'Good guess, keep going!', 'Wrong guess. Start over!'],
+    truePhrase=''
+  }
 
   // if a card is in the clickedCards array, clicking it will trigger the headerPhrases[2] to display etc.
 
   // function for image click event / score tally functionality
   imageClick = event => {
+    event.preventDefault();
     // check if the image is clicked
     if (isClicked) {
       // display the loss header phrase
-      truePhrase = headerPhrases[2];
+      this.state.truePhrase = this.state.headerPhrases[2];
       // if they got a new high score, swap out old top for new score
       if (score > topscore) {
-        topscore = score;
+        this.state.topscore = this.state.score;
       }
     } else {
       // switch isClicked to true
-      isClicked = true;
+      this.isClicked = true;
       // call function to shuffle cards
+      // SHUFFLE FUNCTION HERE
       // increase score by 1
-      score += 1;
+      this.score += 1;
       // display the good guess phrase
-      truePhrase = headerPhrases[1];
+      this.state.truePhrase = this.state.headerPhrases[1];
     }
     // event.target = what was clicked
     // change data-attribute "isClicked" to "1" or true
    }
 
-
-  return (
-    // create image grid and app logic in app.js
-    <div className="App">
-      <Header phrase={this.truePhrase} score={this.score} topscore={this.topscore} />
-      <Jumbotron />
-      <div className="container">
-      <Images clickHandler={this.imageClick}/>
+   render() {
+    return (
+      // render components in html
+      <div className="App">
+        <Header phrase={this.state.truePhrase} score={this.score} topscore={this.topscore} />
+        <Jumbotron />
+        <div className="container">
+        <Images clickHandler={this.imageClick}/>
+        </div>
+      <Footer logo={smashBall} />
       </div>
-    <Footer logo={smashBall} />
-    </div>
-  );
+    );
+   }
 }
 
 export default App;
