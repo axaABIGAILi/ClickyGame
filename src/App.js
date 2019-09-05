@@ -9,10 +9,9 @@ import './App.css';
 
 // create App as a class to make it more updateable
 class App extends React.Component {
+
   // setting state
-  constructor(props) {
-    super(props)
-    // moved variables into a state object for updating
+  // moved variables into a state object for updating
     state = {
     score: 0,
     topscore: 0,
@@ -30,30 +29,30 @@ class App extends React.Component {
     // check if the image is clicked
     if (this.state.isClicked) {
       // display the loss header phrase
-      this.state.truePhrase = this.state.headerPhrases[2];
+      this.setState({truePhrase: this.state.headerPhrases[2]});
       // if they got a new high score, swap out old top for new score
       if (this.state.score > this.state.topscore) {
-        this.state.topscore = this.state.score;
+        this.setState({topscore: this.state.score});
       }
     } else {
       // switch isClicked to true
-      this.state.isClicked = true;
+      this.setState({isClicked: true});
       // call function to shuffle cards
       // SHUFFLE FUNCTION HERE
       // increase score by 1
-      this.state.score += 1;
+      this.setState((state)=> ({score: state.score += 1}));
       // display the good guess phrase
-      this.state.truePhrase = this.state.headerPhrases[1];
+      this.setState({truePhrase: this.state.headerPhrases[1]});
     }
     // event.target = what was clicked
     // change data-attribute "isClicked" to "1" or true
    }
 
-   render() {
+   render = () => {
     return (
       // render components in html
       <div className="App">
-        <Header phrase={this.state.truePhrase} score={this.score} topscore={this.topscore} />
+        <Header phrase={this.state.truePhrase} score={this.state.score} topscore={this.state.topscore} />
         <Jumbotron />
         <div className="container">
         <Images clickHandler={this.imageClick}/>
