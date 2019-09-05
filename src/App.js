@@ -20,7 +20,7 @@ class App extends React.Component {
       clickedCards: [],
       cardsTotal: 12,
       headerPhrases: ['Click to start the game!', 'Good guess, keep going!', 'Wrong guess. Start over!'],
-      truePhrase:''
+      truePhrase: 'Click to start!'
     }
   }
 

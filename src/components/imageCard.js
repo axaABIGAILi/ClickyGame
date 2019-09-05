@@ -16,9 +16,9 @@ const Images = props => {
         border: '1px solid gray'
     }
     for (let i=0; i<characters.length;i++) {
-        return <div className="image" style={divStyle}>
+        return (<div className="image" style={divStyle}>
             <img src={characters[i].image} alt={characters[i].name} style={imgStyle} onClick={props.imageClick}></img>
-        </div>
+        </div>);
     }
 };
 
