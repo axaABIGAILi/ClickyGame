@@ -17,15 +17,25 @@ function App() {
   var clickedCards = [];
   // total cards # that users strive for
   const cardsTotal = 12;
+  // array of quotes depending on the latest click
+  const headerPhrases = ['Click to start the game!', 'Good guess, keep going!', 'Wrong guess. Start over!']
+
+  // if a card is in the clickedCards array, clicking it will trigger the headerPhrases[2] to display etc.
+
+  // function for image click event / score tally functionality
+  imageClick = event => {
+    // event.target = what was clicked
+    // change data-attribute "isClicked" to "1" or true
+   }
 
 
   return (
     // create image grid and app logic in app.js
     <div className="App">
-      <Header score={this.score} topscore={this.topscore} />
+      <Header phrase={this.truePhrase} score={this.score} topscore={this.topscore} />
       <Jumbotron />
       <div className="container">
-      <Images />
+      <Images clickHandler={this.imageClick}/>
       </div>
     <Footer logo={smashBall} />
     </div>
