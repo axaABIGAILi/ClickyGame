@@ -10,16 +10,19 @@ import './App.css';
 // create App as a class to make it more updateable
 class App extends React.Component {
 
+  constructor(props) {
+    super(props);
   // setting state
   // moved variables into a state object for updating
-    state = {
-    score: 0,
-    topscore: 0,
-    clickedCards: [],
-    cardsTotal: 12,
-    headerPhrases: ['Click to start the game!', 'Good guess, keep going!', 'Wrong guess. Start over!'],
-    truePhrase:''
+    this.state = {
+      score: 0,
+      topscore: 0,
+      clickedCards: [],
+      cardsTotal: 12,
+      headerPhrases: ['Click to start the game!', 'Good guess, keep going!', 'Wrong guess. Start over!'],
+      truePhrase:''
     }
+  }
 
   // if a card is in the clickedCards array, clicking it will trigger the headerPhrases[2] to display etc.
 
@@ -48,7 +51,7 @@ class App extends React.Component {
     // change data-attribute "isClicked" to "1" or true
    }
 
-   render = () => {
+   render() {
     return (
       // render components in html
       <div className="App">
