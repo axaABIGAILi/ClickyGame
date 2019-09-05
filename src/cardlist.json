@@ -1,61 +1,61 @@
 [{
     "id": 1,
     "name": "Mario",
-    "image": "../src/components/images/mario.png",
+    "image": "./images/mario.png",
     "value": 1
 },{
     "id": 2,
     "name": "Donkey Kong",
-    "image": "./components/images/dk.png",
+    "image": "./images/dk.png",
     "value": 1
 },{
     "id": 3,
     "name": "Samus",
-    "image": "./components/images/samus.png",
+    "image": "./images/samus.png",
     "value": 1
 },{
     "id": 4,
     "name": "Link",
-    "image": "./components/images/link.png",
+    "image": "./images/link.png",
     "value": 1
 },{
     "id": 5,
     "name": "Pikachu",
-    "image": "./components/images/pikachu.png",
+    "image": "./images/pikachu.png",
     "value": 1
 },{
     "id": 6,
     "name": "Ness",
-    "image": "./components/images/ness.png",
+    "image": "./images/ness.png",
     "value": 1
 },{
     "id": 7,
     "name": "Bowser",
-    "image": "./components/images/bowser.png",
+    "image": "./images/bowser.png",
     "value": 1
 },{
     "id": 8,
     "name": "Fox",
-    "image": "./components/images/fox.png",
+    "image": "./images/fox.png",
     "value": 1
 },{
     "id": 9,
     "name": "Ice Clilmbers",
-    "image": "./components/images/iceclimbers.png",
+    "image": "./images/iceclimbers.png",
     "value": 1
 },{
     "id": 10,
     "name": "Kirby",
-    "image": "./components/images/kirby.png",
+    "image": "./images/kirby.png",
     "value": 1
 },{
     "id": 11,
     "name": "Marth",
-    "image": "./components/images/marth.png",
+    "image": "./images/marth.png",
     "value": 1
 },{
     "id": 12,
     "name": "Sheik",
-    "image": "./components/images/sheik.png",
+    "image": "./images/sheik.png",
     "value": 1
 }]

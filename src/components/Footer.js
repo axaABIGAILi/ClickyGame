@@ -10,10 +10,11 @@ const Footer = props => {
     let footerStyle = {
       margin: '150px 0 0 0',
       overflow:'auto',
-      backgroundColor: 'lightgray'
+      backgroundColor: 'lightgray',
+      bottom: '0'
     }
     return (
-      <footer className="page-footer" style={footerStyle}>
+      <footer className="page-footer navbar-fixed-bottom" style={footerStyle}>
         <img src={props.logo} style={logoStyle} alt="logo"></img><h4>Smash Clicker!</h4>
       </footer>
     );

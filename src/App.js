@@ -1,5 +1,5 @@
 import React from 'react';
-import smashBall from './components/images/SmashBall.svg';
+import smashBall from './SmashBall.svg';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Jumbotron from './components/Jumbotron';
@@ -21,11 +21,12 @@ class App extends React.Component {
       clickedCards: [],
       cardsTotal: 12,
       headerPhrases: ['Click to start the game!', 'Good guess, keep going!', 'Wrong guess. Start over!'],
-      truePhrase: 'Click to start!'
+      truePhrase: 'Click to start!',
+      characters
     }
   }
   // card shuffling function
-  function shuffle(arr){
+shuffle = arr =>{
     for (let i=0; i < characters.length; i++) {
       let j = Math.floor(Math.random()*(i+1));
       [arr[i], arr[j]] = [arr[j],arr[i]];
@@ -50,7 +51,7 @@ class App extends React.Component {
       this.setState({isClicked: true});
       // call function to shuffle cards
       // SHUFFLE FUNCTION HERE
-      shuffle(characters);
+      //shuffle(characters);
       // increase score by 1
       this.setState((state)=> ({score: state.score += 1}));
       // display the good guess phrase
@@ -67,8 +68,13 @@ class App extends React.Component {
         <Header phrase={this.state.truePhrase} score={this.state.score} topscore={this.state.topscore} />
         <Jumbotron />
         <div className="container">
-        <Images clickHandler={this.imageClick}/>
-        </div>
+       
+        {
+          this.state.characters.map(char => (
+            <Images imgURL={char.image} name={char.name} imageClick={this.imageClick} />
+          ))
+        }
+       </div>
       <Footer logo={smashBall} />
       </div>
     );

@@ -3,7 +3,9 @@ import React from 'react';
 const Header = props => {
 
   const navStyle = {
-    backgroundColor: 'lightgray'
+    backgroundColor: 'lightgray',
+    top: '0',
+    margin: '0 auto'
   }
 
     return <nav className="navbar navbar-default" style={navStyle}>
