@@ -19,11 +19,29 @@ function App() {
   const cardsTotal = 12;
   // array of quotes depending on the latest click
   const headerPhrases = ['Click to start the game!', 'Good guess, keep going!', 'Wrong guess. Start over!']
+  var truePhrase='';
 
   // if a card is in the clickedCards array, clicking it will trigger the headerPhrases[2] to display etc.
 
   // function for image click event / score tally functionality
   imageClick = event => {
+    // check if the image is clicked
+    if (isClicked) {
+      // display the loss header phrase
+      truePhrase = headerPhrases[2];
+      // if they got a new high score, swap out old top for new score
+      if (score > topscore) {
+        topscore = score;
+      }
+    } else {
+      // switch isClicked to true
+      isClicked = true;
+      // call function to shuffle cards
+      // increase score by 1
+      score += 1;
+      // display the good guess phrase
+      truePhrase = headerPhrases[1];
+    }
     // event.target = what was clicked
     // change data-attribute "isClicked" to "1" or true
    }
