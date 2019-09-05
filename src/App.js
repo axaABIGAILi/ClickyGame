@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Jumbotron from './components/Jumbotron';
 import Images from './components/imageCard';
+import characters from './cardlist.json';
 //import characters from './cardlist.json';
 import './App.css';
 
@@ -23,6 +24,13 @@ class App extends React.Component {
       truePhrase: 'Click to start!'
     }
   }
+  // card shuffling function
+  function shuffle(arr){
+    for (let i=0; i < characters.length; i++) {
+      let j = Math.floor(Math.random()*(i+1));
+      [arr[i], arr[j]] = [arr[j],arr[i]];
+    }
+  }
 
   // if a card is in the clickedCards array, clicking it will trigger the headerPhrases[2] to display etc.
 
@@ -30,7 +38,7 @@ class App extends React.Component {
   imageClick = event => {
     event.preventDefault();
     // check if the image is clicked
-    if (this.state.isClicked) {
+    if (this.isClicked) {
       // display the loss header phrase
       this.setState({truePhrase: this.state.headerPhrases[2]});
       // if they got a new high score, swap out old top for new score
@@ -42,6 +50,7 @@ class App extends React.Component {
       this.setState({isClicked: true});
       // call function to shuffle cards
       // SHUFFLE FUNCTION HERE
+      shuffle(characters);
       // increase score by 1
       this.setState((state)=> ({score: state.score += 1}));
       // display the good guess phrase

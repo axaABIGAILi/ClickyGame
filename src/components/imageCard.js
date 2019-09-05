@@ -15,11 +15,15 @@ const Images = props => {
         height: '100%',
         border: '1px solid gray'
     }
-    for (let i=0; i<characters.length;i++) {
+
+    let charArray = Object.keys(characters);
+    
+    for (let i=0; i < charArray.length;i++) {
+
         return (<div className="image" style={divStyle}>
-            <img src={characters[i].image} alt={characters[i].name} style={imgStyle} onClick={props.imageClick}></img>
-        </div>);
+            <img src={characters[i].image} alt={characters[i].name} style={imgStyle} data-clicked={false} onClick={props.imageClick}></img>
+            </div>)
     }
-};
+}
 
 export default Images;

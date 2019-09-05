@@ -1,13 +1,18 @@
 import React from 'react';
 
 const Header = props => {
-    return <div className="navbar">
-        <ul>
-          <li>Clicky Game</li>
-          <li>{props.phrase}</li>
-          <li>Score: <span id="score">{props.score}</span>| Top Score: <span id="topscore">{props.topscore}</span></li>
+
+  const navStyle = {
+    backgroundColor: 'lightgray'
+  }
+
+    return <nav className="navbar navbar-default" style={navStyle}>
+        <ul className="navbar">
+          <li className="navbar"><a href="#">Smash Clicky Game!</a></li>
+          <li className="navbar">{props.phrase}</li>
+          <li className="navbar">Score: <span id="score">{props.score}</span> | Top Score: <span id="topscore">{props.topscore}</span></li>
         </ul>
-      </div>
+      </nav>
 }
 
 export default Header;
