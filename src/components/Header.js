@@ -10,7 +10,7 @@ const Header = props => {
 
     return <nav className="navbar navbar-default" style={navStyle}>
         <ul className="navbar">
-          <li className="navbar"><a href="#">Smash Clicky Game!</a></li>
+          <li className="navbar">Smash Clicky Game!</li>
           <li className="navbar">{props.phrase}</li>
           <li className="navbar">Score: <span id="score">{props.score}</span> | Top Score: <span id="topscore">{props.topscore}</span></li>
         </ul>

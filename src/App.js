@@ -26,7 +26,7 @@ class App extends React.Component {
     }
   }
   // card shuffling function
-shuffle = arr =>{
+  shuffleCards = arr =>{
     for (let i=0; i < characters.length; i++) {
       let j = Math.floor(Math.random()*(i+1));
       [arr[i], arr[j]] = [arr[j],arr[i]];
@@ -38,27 +38,29 @@ shuffle = arr =>{
   // function for image click event / score tally functionality
   imageClick = event => {
     event.preventDefault();
-    // check if the image is clicked
-    if (this.isClicked) {
+    console.log(event.target.alt)
+      // check if the image is clicked
+      // event.target = what was clicked
+    if (this.state.clickedCards.includes(event.target.alt)) {
       // display the loss header phrase
       this.setState({truePhrase: this.state.headerPhrases[2]});
       // if they got a new high score, swap out old top for new score
       if (this.state.score > this.state.topscore) {
         this.setState({topscore: this.state.score});
       }
+      this.setState({score: 0})
+      // run shuffle function
+      this.shuffleCards();
     } else {
-      // switch isClicked to true
-      this.setState({isClicked: true});
+      // push name into the game state's clicked array
+      this.state.clickedCards.push(this)
       // call function to shuffle cards
-      // SHUFFLE FUNCTION HERE
-      //shuffle(characters);
+      this.shuffleCards(characters);
       // increase score by 1
       this.setState((state)=> ({score: state.score += 1}));
       // display the good guess phrase
       this.setState({truePhrase: this.state.headerPhrases[1]});
     }
-    // event.target = what was clicked
-    // change data-attribute "isClicked" to "1" or true
    }
 
    render() {

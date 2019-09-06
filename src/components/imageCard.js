@@ -1,5 +1,5 @@
 import React from 'react';
-import characters from '../cardlist.json';
+//import characters from '../cardlist.json';
 
 // display images
 const Images = props => {
@@ -17,7 +17,7 @@ const Images = props => {
     }
 
     return (<div className="image" style={divStyle}>
-            <img src={props.imgURL} alt={props.name} style={imgStyle} onclick={props.imageClick} ></img>
+            <img src={props.imgURL} alt={props.name} style={imgStyle} onClick={props.imageClick} ></img>
             </div>)
     }
 
