@@ -8,10 +8,8 @@ const Footer = props => {
       margin: '5px 5px 5px 5px'
     }
     let footerStyle = {
-      margin: '150px 0 0 0',
-      overflow:'auto',
+      margin: '75px 0 0 0',
       backgroundColor: 'lightgray',
-      bottom: '0'
     }
     return (
       <footer className="page-footer navbar-fixed-bottom" style={footerStyle}>

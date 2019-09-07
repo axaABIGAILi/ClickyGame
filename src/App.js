@@ -5,7 +5,6 @@ import Footer from './components/Footer';
 import Jumbotron from './components/Jumbotron';
 import Images from './components/imageCard';
 import characters from './cardlist.json';
-//import characters from './cardlist.json';
 import './App.css';
 
 // create App as a class to make it more updateable
@@ -24,8 +23,6 @@ class App extends React.Component {
       truePhrase: 'Click to start!',
       characters
     }
-
-    this.baseState = this.state
   }
   // card shuffling function
   shuffleCards = arr =>{
@@ -48,10 +45,9 @@ class App extends React.Component {
 
   // function for image click event / score tally functionality
   imageClick = (characterIndex) => {
-    let 
     //console.log("yay imageClick is running my function and user clicked on this image index " + characterIndex);
     // check if the image is clicked
-    if (this.state.characters[characterIndex].isClicked === true || this.state.score === this.state.cardsTotal) {
+    if (this.state.characters[characterIndex].isClicked === true) {
       // display the loss header phrase
       this.setState({truePhrase: this.state.headerPhrases[2]});
       // if they got a new high score, swap out old top for new score
@@ -64,12 +60,12 @@ class App extends React.Component {
       let newShuffledCards = this.shuffleCards(this.state.characters);
       // update the state characters array with the  newly shuffled cards
       this.setState( {characters: [...newShuffledCards]});
-
+      // set lostGame to true to trigger animation
+      let lostGame = true;
       // reset the isClicked
       this.resetData();
-      // animate the cards upon loss
-
     } else {
+        let lostGame = false;
         // temporary variable to store array
         let tempCharacters = [...this.state.characters];
         // set the isClicked value to true
