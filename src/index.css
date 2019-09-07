@@ -27,12 +27,13 @@ footer {
 }
 
 .container {
-  padding: 10px;
+  padding-left: 15%;
   margin: 0 auto;
 }
 
+/*shake animation keyframes and specs from w3schools*/
 .image-shake {
-    animation: shake 0.5s;
+    animation: shake 1s;
     animation-iteration-count: infinite;
 }
   

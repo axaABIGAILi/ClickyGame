@@ -19,7 +19,7 @@ const Images = props => {
     
 
     return (<div className="image" style={divStyle}>
-            <img src={props.imgURL} alt={props.name} style={imgStyle} className={`image ${props.lostGame ? 'image-shake' : 'image'}`}onClick={ () => {props.imageClick(props.characterIndex)} } ></img>
+            <img src={props.imgURL} alt={props.name} style={imgStyle} className={`image ${props.lostGame ? 'image-shake' : ''}`}onClick={ () => {props.imageClick(props.characterIndex)} } ></img>
             </div>)
     }
 

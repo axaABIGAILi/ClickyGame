@@ -21,6 +21,7 @@ class App extends React.Component {
       cardsTotal: 12,
       headerPhrases: ['Click to start the game!', 'Good guess, keep going!', 'Wrong guess. Start over!'],
       truePhrase: 'Click to start!',
+      isLost: false,
       characters
     }
   }
@@ -39,13 +40,13 @@ class App extends React.Component {
       characters.isClicked=false;
       return characters;
     })
+    //this.setState({isLost: false})
   }
 
   // if a card is in the clickedCards array, clicking it will trigger the headerPhrases[2] to display etc.
 
   // function for image click event / score tally functionality
   imageClick = (characterIndex) => {
-    //console.log("yay imageClick is running my function and user clicked on this image index " + characterIndex);
     // check if the image is clicked
     if (this.state.characters[characterIndex].isClicked === true) {
       // display the loss header phrase
@@ -56,16 +57,16 @@ class App extends React.Component {
       }
       // reseting score to 0
       this.setState({score: 0})
+      // set lostGame to true to trigger shake animation
+      this.setState({isLost: true})
       // run shuffle function
       let newShuffledCards = this.shuffleCards(this.state.characters);
       // update the state characters array with the  newly shuffled cards
       this.setState( {characters: [...newShuffledCards]});
-      // set lostGame to true to trigger animation
-      let lostGame = true;
-      // reset the isClicked
+      // reset the isClicked in a set interval to assure the shake animation happens
       this.resetData();
     } else {
-        let lostGame = false;
+      this.setState({isLost: false});
         // temporary variable to store array
         let tempCharacters = [...this.state.characters];
         // set the isClicked value to true
@@ -90,7 +91,7 @@ class App extends React.Component {
         <div className="container">
         {
           this.state.characters.map( (char, characterIndex) => (
-            <Images lostGame={this.lostGame} key={char.id} imgURL={char.image} name={char.name} imageClick={this.imageClick} characterIndex={characterIndex} />
+            <Images lostGame={this.isLost} key={char.id} imgURL={char.image} name={char.name} imageClick={this.imageClick} characterIndex={characterIndex} />
           ))
         }
        </div>
