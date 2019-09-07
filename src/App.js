@@ -48,6 +48,7 @@ class App extends React.Component {
 
   // function for image click event / score tally functionality
   imageClick = (characterIndex) => {
+    let 
     //console.log("yay imageClick is running my function and user clicked on this image index " + characterIndex);
     // check if the image is clicked
     if (this.state.characters[characterIndex].isClicked === true || this.state.score === this.state.cardsTotal) {
@@ -63,8 +64,11 @@ class App extends React.Component {
       let newShuffledCards = this.shuffleCards(this.state.characters);
       // update the state characters array with the  newly shuffled cards
       this.setState( {characters: [...newShuffledCards]});
+
       // reset the isClicked
       this.resetData();
+      // animate the cards upon loss
+
     } else {
         // temporary variable to store array
         let tempCharacters = [...this.state.characters];
@@ -90,7 +94,7 @@ class App extends React.Component {
         <div className="container">
         {
           this.state.characters.map( (char, characterIndex) => (
-            <Images key={char.id} imgURL={char.image} name={char.name} imageClick={this.imageClick} characterIndex={characterIndex} />
+            <Images lostGame={this.lostGame} key={char.id} imgURL={char.image} name={char.name} imageClick={this.imageClick} characterIndex={characterIndex} />
           ))
         }
        </div>
