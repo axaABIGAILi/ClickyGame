@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.09976b93.chunk.css",
+    "main.js": "/static/js/main.d8476ece.chunk.js",
+    "main.js.map": "/static/js/main.d8476ece.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.b027e18f.js",
+    "runtime~main.js.map": "/static/js/runtime~main.b027e18f.js.map",
+    "static/js/2.6704351c.chunk.js": "/static/js/2.6704351c.chunk.js",
+    "static/js/2.6704351c.chunk.js.map": "/static/js/2.6704351c.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.b195709edb1cac59cfa40c1b4909399f.js": "/precache-manifest.b195709edb1cac59cfa40c1b4909399f.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.09976b93.chunk.css.map": "/static/css/main.09976b93.chunk.css.map",
+    "static/media/SmashBall.svg": "/static/media/SmashBall.f0790b04.svg"
+  }
+}
