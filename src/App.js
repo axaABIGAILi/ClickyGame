@@ -66,7 +66,7 @@ class App extends React.Component {
       // reset the isClicked in a set interval to assure the shake animation happens
       this.resetData();
     } else {
-      this.setState({isLost: false});
+        this.setState({isLost: false});
         // temporary variable to store array
         let tempCharacters = [...this.state.characters];
         // set the isClicked value to true
@@ -91,7 +91,7 @@ class App extends React.Component {
         <div className="container">
         {
           this.state.characters.map( (char, characterIndex) => (
-            <Images lostGame={this.isLost} key={char.id} imgURL={char.image} name={char.name} imageClick={this.imageClick} characterIndex={characterIndex} />
+            <Images lostGame={this.state.isLost} key={char.id} imgURL={char.image} name={char.name} imageClick={this.imageClick} characterIndex={characterIndex} />
           ))
         }
        </div>
