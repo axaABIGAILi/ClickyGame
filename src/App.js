@@ -24,42 +24,60 @@ class App extends React.Component {
       truePhrase: 'Click to start!',
       characters
     }
+
+    this.baseState = this.state
   }
   // card shuffling function
   shuffleCards = arr =>{
-    for (let i=0; i < characters.length; i++) {
+    for (let i=0; i < arr.length; i++) {
       let j = Math.floor(Math.random()*(i+1));
       [arr[i], arr[j]] = [arr[j],arr[i]];
     }
+
+    return arr; // calvins note we have to return the shuffled array
+  }
+  // function to reset the isClicked value in each part of the array
+  resetData = () => {
+    this.state.characters.map((characters)=>{
+      characters.isClicked=false;
+      return characters;
+    })
   }
 
   // if a card is in the clickedCards array, clicking it will trigger the headerPhrases[2] to display etc.
 
   // function for image click event / score tally functionality
-  imageClick = event => {
-    event.preventDefault();
-    console.log(event.target.alt)
-      // check if the image is clicked
-      // event.target = what was clicked
-    if (this.state.clickedCards.includes(event.target.alt)) {
+  imageClick = (characterIndex) => {
+    //console.log("yay imageClick is running my function and user clicked on this image index " + characterIndex);
+    // check if the image is clicked
+    if (this.state.characters[characterIndex].isClicked === true || this.state.score === this.state.cardsTotal) {
       // display the loss header phrase
       this.setState({truePhrase: this.state.headerPhrases[2]});
       // if they got a new high score, swap out old top for new score
       if (this.state.score > this.state.topscore) {
         this.setState({topscore: this.state.score});
       }
+      // reseting score to 0
       this.setState({score: 0})
       // run shuffle function
-      this.shuffleCards();
+      let newShuffledCards = this.shuffleCards(this.state.characters);
+      // update the state characters array with the  newly shuffled cards
+      this.setState( {characters: [...newShuffledCards]});
+      // reset the isClicked
+      this.resetData();
     } else {
-      // push name into the game state's clicked array
-      this.state.clickedCards.push(this)
-      // call function to shuffle cards
-      this.shuffleCards(characters);
-      // increase score by 1
-      this.setState((state)=> ({score: state.score += 1}));
-      // display the good guess phrase
-      this.setState({truePhrase: this.state.headerPhrases[1]});
+        // temporary variable to store array
+        let tempCharacters = [...this.state.characters];
+        // set the isClicked value to true
+        tempCharacters[characterIndex].isClicked = true;
+        this.setState({characters: [...tempCharacters] });
+        // shuffle the cards
+        let newShuffledCards = this.shuffleCards(tempCharacters);
+        this.setState( {characters: [...newShuffledCards]});
+        // increase score by 1
+        this.setState((state)=> ({score: state.score += 1}));
+        // display the good guess phrase
+        this.setState({truePhrase: this.state.headerPhrases[1]});
     }
    }
 
@@ -70,10 +88,9 @@ class App extends React.Component {
         <Header phrase={this.state.truePhrase} score={this.state.score} topscore={this.state.topscore} />
         <Jumbotron />
         <div className="container">
-       
         {
-          this.state.characters.map(char => (
-            <Images imgURL={char.image} name={char.name} imageClick={this.imageClick} />
+          this.state.characters.map( (char, characterIndex) => (
+            <Images key={char.id} imgURL={char.image} name={char.name} imageClick={this.imageClick} characterIndex={characterIndex} />
           ))
         }
        </div>

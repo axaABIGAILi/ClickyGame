@@ -2,60 +2,60 @@
     "id": 1,
     "name": "Mario",
     "image": "./images/mario.png",
-    "value": 1
+    "isClicked": false
 },{
     "id": 2,
     "name": "Donkey Kong",
     "image": "./images/dk.png",
-    "value": 1
+    "isClicked": false
 },{
     "id": 3,
     "name": "Samus",
     "image": "./images/samus.png",
-    "value": 1
+    "isClicked": false
 },{
     "id": 4,
     "name": "Link",
     "image": "./images/link.png",
-    "value": 1
+    "isClicked": false
 },{
     "id": 5,
     "name": "Pikachu",
     "image": "./images/pikachu.png",
-    "value": 1
+    "isClicked": false
 },{
     "id": 6,
     "name": "Ness",
     "image": "./images/ness.png",
-    "value": 1
+    "isClicked": false
 },{
     "id": 7,
     "name": "Bowser",
     "image": "./images/bowser.png",
-    "value": 1
+    "isClicked": false
 },{
     "id": 8,
     "name": "Fox",
     "image": "./images/fox.png",
-    "value": 1
+    "isClicked": false
 },{
     "id": 9,
     "name": "Ice Clilmbers",
     "image": "./images/iceclimbers.png",
-    "value": 1
+    "isClicked": false
 },{
     "id": 10,
     "name": "Kirby",
     "image": "./images/kirby.png",
-    "value": 1
+    "isClicked": false
 },{
     "id": 11,
     "name": "Marth",
     "image": "./images/marth.png",
-    "value": 1
+    "isClicked": false
 },{
     "id": 12,
     "name": "Sheik",
     "image": "./images/sheik.png",
-    "value": 1
+    "isClicked": false
 }]

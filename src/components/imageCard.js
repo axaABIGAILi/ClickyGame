@@ -17,7 +17,7 @@ const Images = props => {
     }
 
     return (<div className="image" style={divStyle}>
-            <img src={props.imgURL} alt={props.name} style={imgStyle} onClick={props.imageClick} ></img>
+            <img src={props.imgURL} alt={props.name} style={imgStyle}  onClick={ () => {props.imageClick(props.characterIndex)} } ></img>
             </div>)
     }
 
